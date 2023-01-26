@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>okProgramming</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body onload="PR.prettyPrint()">
+  <script src="script.js"></script>
+  <ul class="navbar">
+    <li class="temp">a</li>
+    <section id="name">
+      <li class="link"><a href="index.html">Majd Alajroudi</a></li>
+    </section>
+    <li class="link"><a href="personal.html">Personal</a></li>
+    <section id="active">
+      <li class="link"><a href="programming.html">Programming</a></li>
+    </section>
+    <li class="link"><a href="nonprogramming.html">Non-P</a></li>
+    <li class="link"><a href="ICS3Umain.html">ICS3U</a></li>
+  </ul>
+
+  <section id="first">
+    <h1>Programming</h1>
+  </section>
+  <h2>Note:</h2>
+  <h3>Most code snippets here come from my "A2-Programming Assignment 1" and "A5-Programming Assignment 2".</h3>
+  <h2>Constants/Variables</h2>
+  <h3>Variables are used to store data. The data a variable holds can be edited throughout a program, allowing dynamic programs that can respond to user input on the fly.</h3>
+<h3>Variables can be one of four types, a float (a number which
+    contains decimals), an int (a whole number), a boolean (can only be true or false), or a string (a series of
+    characters). Variables can be declared with this following nomenclature:</h3>
+  <pre class="prettyprint">
+let firstTimeInCloud = true;</pre>
+  <h3>Here, we create a variable with type type 'boolean'. We set our bool to true.</h3>
+  <h3>Variables can also be constants. These are variables which cannot be changed after being declared. They are
+    declared like this: </h3>
+  <pre class="prettyprint">
+const chosenPair = decideItem();</pre>
+  <h3>Here I declare a variable named 'chosenPair', which has a value that is decided by a function (which will be
+    covered later). This variable cannot be changed after this line!</h3>
+  <h2>Conditional Statements (if statements)</h2>
+  <h3>Conditional statements are chunks of code which only happen if a condition is met. For example, a game can use
+    this by identifying when a user's health drops under 0. If this is true, then the game can kill the player. They can
+    be set-up like this: </h3>
+  <pre class="prettyprint">
+if (player.balance >= 125) {
+  log("1 worker hired!")
+  player.balance -= 125
+  player.numWorkers++;
+} else {
+  log("Not enough money..")
+}
+</pre>
+  <h3>You may notice the 'else' in there. 'else' statements can be used to tell the program what to do if the condition
+    isn't met. While not necessary, these are very useful. Here, I'm asking the program to check if the player's balance
+    is over 125$. If it is, higher a worker. But if it isn't (this happens in the else), tell the user they don't have
+    enough money.</h3>
+
+  <h2>Repetition Structures (for/while loops)</h2>
+  <h3>Loops are chunks of code which are ran over and over again until a condition is met. These differ from an if
+    statement because an if statement only runs <u>when</u> the condition is met, while these run <u>until</u> the
+    condition is met.</h3>
+  <h3>There are two main types: for loops, and while loops For loops are mainly useful when you have a general guess of
+    how many times you need the loop to run. This can be especially useful for looping through an array. For loops are
+    set up like this:</h3>
+  <pre class="prettyprint">
+for (i = 0; i < inventory.length; i++) {
+  log("-" + inventory[i])
+}
+</pre>
+  <h3>While this looks extremely complicated, it can be broken down into three simple steps.</h3>
+<h3>First, you need to set up
+    your variable. I am doing this when I write 'i = 0'. I begin at 0 because I want to cycle through my array, which
+    start at 0. In most cases, you'll set your variable to 0, but certain circumstances may change that. We add a
+    semicolon to tell the program we are done declaring our variable, and to move on.</h3>
+<h3>Second, we are setting our stop
+    condition. You can think of this section as 'keep going unless this isn't true. Here, I am telling the program to
+    keep going aslong as i is less than the length of my inventory array. We add another semi-colon to show that we're
+    moving on, and finally, we tell the program what to do everytime it loops. We just want to increase our variable by
+    one, so we do 'i++''.</h3>
+  <h3>So to explain, this piece of code will go through every item in the inventory, and log it to the user. Simple, but
+    useful!</h3>
+  <h3>Next are while loops. These are useful when you don't know when the condition will become true. I have used a
+    while loop in a password system before, where the user enters their password, and if it is not correct, the while
+    loop keeps going. If it is, however, the while loop notices the condition is true and stops. They are simple to
+    set-up:</h3>
+  <pre class="prettyprint">
+while (!passwordCorrect) {
+  if (prompt("System: " + "Enter your password") == password) {
+    passwordCorrect = true;
+  } else {
+    log("Incorrect!")
+    let proceed = prompt("Try Again? (yes),(no)")
+    if (proceed == "yes") {
+      log("System: Go ahead.")
+    } else {
+          enteranceCode()
+    }
+  }
+}</pre>
+  <h3>I've set up my condition here to be when a variable is false. The loop will keep going until it detects the
+    password is correct. The password will only become correct when the user inputs their valid password, and then a
+    variable will be set to true so the loop will stop.</h3>
+  <h2>Built-in Functions</h2>
+  <h3>Built-in Functions are functions which JavaScript developers have embedded into the coding language for user
+    ease-of-use. These can be used to edit a string, generate a random number, or more. Below, I show two examples of
+    JavaScript functions:</h3>
+  <pre class="prettyprint">
+let choice = prompt(cloudName + ": What do you want to do? Add item(add), Remove item(remove), (return)").toLowerCase();</pre>
+  <h3>At the end, i'm using the 'toLowerCase' function to turn the user's input from the prompt all lowercase. This is
+    useful to detect the user's choice without much lines of code. I did not declare this function, because it is
+    built-in to the JavaScript language.</h3>
+  <pre class="prettyprint">let treePrice = Math.floor(Math.random() * 200) + 50</pre>
+  <h3>Here, I used two built-in functions to generate a random number from 50-200. The Math.floor function rounds down
+    to the nearest integer, and the Math.random function generates a float from 0-1. This notation above can be used to
+    generate a random integer any range you want!</h3>
+  <h2>Custom Functions</h2>
+  <h3>Custom functions are incredibly versatile chunks of code the user creates and calls upon several times throughout
+    their code. You can put anything you want into a custom function, and the code inside it will only run when you call
+    it. They can be setup like this:</h3>
+  <pre class="prettyprint">
+function log(whatToLog) {
+  console.log(whatToLog);
+}</pre>
+  <h3>Above is a function that I've created in every JavaScript assignment I have done in this course. This function is
+    very simple, it's a shortcut which allows the programmer to simply type 'log(text)', rather than the long
+    'console.log(text)'.</h3> 
+<h3>I can call this at any time throughout my code, and it saves a lot of time. Remember though,
+    custom functions can be a lot longer, with my longest one being in the hundreds of lines!</h3>
+  <h2>Arrow Functions</h2>
+  <h3>Arrow functions are a deviation of custom functions which shortens the function notation. This can take a function
+    from 5-10 lines to simply one line. They can be set up like this: </h3>
+  <pre class="prettyprint">
+function random(highest){
+  return Math.floor(Math.random() * highest
+}</pre>
+  <pre class="prettyprint">
+const random = (highest) => Math.floor(Math.random() * highest)</pre>
+  <h3>The first code block shows how this arrow function would look as a normal function, and the second is the actual arrow
+    function. Setting up an arrow function requires converting it to a 'const variable'. Then, after your equal sign,
+    you put your paraments in paranthesis and then an arrow (which is where the name comes from!). After your arrow, you
+    put in your one line of code, and your arrow function is complete!</h3>
+  <h2>Function Documentation</h2>
+  <h3>In the industry, it is important to properly document your code so other programmers can understand what it does.
+    In the later half of the ICS3U course, students must use specific function documentation. Here is how it is done:
+  </h3>
+  <pre class="prettyprint">
+/**  FUNCTIONNAME
+  * Description of the function 
+  *
+  * @param {datatype} parameter1 - Description of parameter1
+  * @param {datatype} parameter2 - Description of parameter2
+  *
+  * @returns {datatype} Description of return value
+  *
+  * 
+  */
+  function functionName(parameter1, parameter2) {
+    return returnValue;
+  }</pre>
+  <h3>All you need to do is take this, and replace all the placeholders (FUNCTION-NAME, the description, @param and
+    @returns) with applicable answers for your function. For example, below I show how I used the documentation for the
+    log() function shown earlier on this page.</h3>
+  <pre class="prettyprint">
+/**
+ * FUNCTION NAME: log
+ * Prints a message to the console
+ *
+ * @param {string} whatToLog - The message to be logged
+ *
+ * @returns {undefined} does not return a value
+ */
+function log(whatToLog) {
+  console.log(whatToLog)
+}</pre>
+  <h2>Arrays</h2>
+  <h3>An array is list which holds data. Arrays are very useful and can be used in situations such as inventories, a
+    list of names, or other similar situations. Below, I will show an example of an array I used.</h3>
+  <pre class="prettyprint">
+let possiblePayTypes = ["debit", "credit", "cash", "acorns"]</pre>
+  <h3>Here, I declare an array with the name 'possiblePayTypes', and give it four values. These values can be accessed
+    like this:</h3>
+  <pre class="prettyprint">
+console.log(possiblePayTypes[2])
+OUTPUT: cash</pre>
+  <h3>You may be wondering why feeding '2' into the array logs 'cash' when 'credit' is the second item. This is because
+    arrays actually start at 0, meaning the first element, 0, would be 'debit'.</h3>
+  <h2>Modifying Arrays</h2>
+  <h3>Many times while coding, programmers will need to change data in their array. They may want to add items, remove
+    them, sort the array. Luckily, JavaScript has built-in functions with the purpose of modifying arrays. Below, I list
+    out the most useful ones.</h3>
+  <pre class="prettyprint">
+//array1.concat(array2)
+//This function combines two arrays.
+const vegetables = ['cucumbers', 'carrots', 'turnips']
+const liquids = ['water', 'orange juice', 'pickle juice']
+
+const randomStuff = vegetables.concat(liquids)
+console.log(randomStuff)
+//Example Output
+['cucumbers', 'carrots', 'turnips', 'water', 'orange juice', 'pickle juice']
+  </pre>
+  <pre class="prettyprint">
+//array.pop()
+//This function returns the last item in an array
+const brands = ['nike', 'adidas', 'apple', 'ikea', 'google'];
+
+console.log(brands.pop());
+
+//Example Output
+google
+</pre>
+  <pre class="prettyprint">
+//array.push()
+//This function adds an item to the end of an array
+const brands = ['nike', 'adidas', 'apple', 'ikea', 'google'];
+
+brands.push('microsoft')
+  
+console.log(brands);
+
+//Example Output
+['nike', 'adidas', 'apple', 'ikea', 'google']
+</pre>
+  <pre class="prettyprint">
+//array.reverse()
+//This function reverses the order of an array
+const brands = ['nike', 'adidas', 'apple', 'ikea', 'google'];
+
+brands.reverse()
+  
+console.log(brands);
+
+//Example Output
+['google', 'ikea', 'apple', 'adidas', 'nike']
+</pre>
+  <pre class="prettyprint">
+//array.splice(index, quantity)
+//This function removes a 'quantity'of items beginning at 'index'
+const brands = ['nike', 'adidas', 'apple', 'ikea', 'google'];
+
+brands.splice(2, 1)
+  
+console.log(brands);
+
+//Example Output
+['nike', 'adidas', 'ikea', 'google']
+</pre>
+  <h3>These are not all the functions JavaScript has built-in for modifying arrays, but the ones I found myself using
+    the most.</h3>
+  <h1>Q&A</h1>
+  <h2>How might a variable be used to control a player?</h2>
+  <h3>Programmers could make a variable which holds the player's speed, and plug it into any calculations that take the player's speed into account. This allows them to add things like power-ups.</h3>
+  <h2>Why would if statements be necessary in most programs?</h2>
+  <h3>If statements are the most basic form of detecting conditions. Without them, programmers would be limited to simple programs and modern technologies such as video games, accounting softwares, etc, would not exist.</h3>
+  <h2>How would I use a while loop like a for loop?</h2>
+  <h3>While this is pretty redundant, it can be done by creating a variable which equals 0. Then, you can set up your while loop to keep running until your variable equals your max value. Don't forget, you have to add onto the variable in your while loop.</h3>
+  <pre class="prettyprint">
+let x = 0;
+while(x < brands.length){
+console.log(brands[x])
+x++
+}</pre>
+<h3>This would log every item in the 'brands' array. As stated earlier, this is redundant and you'd be better off using a for loop for this kind of looping.</h3>
+<h2>How should I set up my custom functions?</h2>
+<h3>Your functions should be well documented, have good names and have descriptive variable naming. Below, I show an example of a badly designed function v.s a well designed function.</h3>
+<pre class="prettyprint">
+//Not a great function
+function r(x){
+  return Math.floor(Math.random() * x)
+}</pre>
+<pre class="prettyprint">
+/**
+ * FUNCTION NAME: random
+ * Generates a random number between 0 and a specified maximum value (not including the maximum value).
+ *
+ * @param {int} highest - The maximum value (not including the maximum value) that the random number can be.
+ * 
+ * @returns {int} returns a random number between 0 and the specified maximum value.
+ */
+const random = (highest) => Math.floor(Math.random() * highest)</pre>
+<h3>The first function has a name that makes no sense, the variables aren't descriptive, and it could be shortened. This means that another programmer will have to guess what the function does. The second, however, is well-named and has documentation. Other programmers will be able to easily tell what it does.</h3>
+<h2>How might an array that is never modified look?</h2>
+<h3>Personally, I used an array like this in both of my programming projects. I had a big array full of names that was never edited, however, I also had a function that would randomly pick a name from that array.</h3>
+</br>
+  <link rel="stylesheet" type="text/css" href="google-code-prettify/skins/atomlike.css">
+  <script type="text/javascript" src="google-code-prettify/prettify.js"></script>
+</body>
+
+</html>

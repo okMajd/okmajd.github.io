@@ -1,0 +1,300 @@
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: Lucida Sans Unicode;
+  background-color: #424549;
+  overflow: scroll;
+  overflow-x: hidden;
+  color: white;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
+ul.navbar{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position:fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  right: 500%;
+  background-color: #36393e;
+  font-size: 150%;
+}
+
+
+li.link{
+  float: right;
+  display: block;
+  padding: 8px;
+  background-color: #36393E;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.link:hover{
+  
+  background-color: #1e2124;
+}
+li.temp{
+  float: right;
+  display: block;
+  padding: 8px;
+  background-color: #36393E;
+  color:#36393E;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+#active .link{
+  background-color: #454FBF;
+}
+
+#name .link{
+  float: left;
+  display: block;
+  padding: 8px;
+  background-color: #7289DA;
+  text-decoration: none;
+}
+h1{
+  margin-left: 10px;
+  margin-bottom: 5px;
+  color: #5865F2;
+}  
+#first h1{
+  margin-top:75px;
+  text-align: center;
+  font-size: 45px;
+}
+
+#main h1{
+  margin-top:75px;
+  text-align: center;
+  font-size: 45px;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid white; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  letter-spacing: .01em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white; }
+}
+h3{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+h2{
+  margin-left: 10px;
+  margin-bottom: -10px;
+  margin-top: -10px;
+  color: #7289DA;
+}
+h2.question{
+  margin-top: 10px;
+}
+#first h3{
+  animation: fadein 2.5s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+#second h1.header{
+  margin-bottom: -17px;
+  animation: fadein 2.5s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+  color: #7289da;  
+}
+
+li.project{
+  font-weight: bold;
+}
+#cheatcode .project{
+  font-size: 20px;
+}
+ul.cheater{
+  list-style-type: none;
+  margin-left: -30px;
+}
+#headercheat h1.header{
+  margin-bottom: -17px;
+  color: #7289da;  
+}
+#cheatcode2 .project{
+  font-size: 20px;
+}
+#first .project{
+  animation-delay: 2.5s;
+}
+#second .project{
+  animation-delay: 3s;
+}
+#third .project{
+  animation-delay: 3.5s;
+}
+#fourth .project{
+  animation-delay: 4s;
+}
+#fifth .project{
+  animation-delay: 4.5s;
+}
+#sixth .project{
+  animation-delay: 5s;
+}
+#third h1.header{
+  margin-bottom: -17px;
+  animation: fadein 2.5s;
+  animation-delay: 6s;
+  animation-fill-mode: forwards;
+  color: #7289da;  
+}
+#seventh .project{
+  animation-delay: 6.5s;
+}
+#eighth .project{
+  animation-delay: 7s;
+}
+#ninth .project{
+  animation-delay: 7.5s;
+}
+#tenth .project{
+  animation-delay: 8s;
+}
+#eleventh .project{
+  animation-delay: 8.5s;
+}
+#twelveth .project{
+  animation-delay: 9s;
+}
+
+button.continue{
+  margin-left: 5px;
+  color: #7289da; 
+  font-weight: bold;
+  margin-bottom: 50px;
+  background-color: transparent;
+  border-style: hidden;
+  font-size: 0;
+  animation: fadein 2.5s, h1bigger 2.5s;
+  animation-delay: 1s;
+  animation-fill-mode:forwards;
+  transition:0.3s;
+}
+.continue:hover{
+  color:#454FBF;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.continue:active{
+  opacity: 0.7;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  background-color: #454FBF;
+  color: white;
+  
+}
+
+#mini .continue{
+  animation: none;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+#finalizelanding .continue{
+  animation-delay: 6s;
+}
+
+@keyframes h1bigger{
+  from {font-size: 0px}
+  to {font-size: 40px}
+}
+@keyframes fadein {
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+
+a{
+  color:white;
+  text-decoration: none;
+}
+
+ul.projects{
+  margin-top: -20px;
+}
+
+ul.compgallery{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+li.item{
+  list-style-type: none;
+  text-align: center;
+  font-size: 75px;
+  padding: 0;
+  margin-right: 40px;
+}
+
+button.transfer{
+  margin-left: 10px;
+  color: #7289da; 
+  font-weight: bold;
+  background-color: #23272A;
+  border-style: hidden;
+  font-size: 75px;
+  transition:0.3s;
+}
+.transfer:hover{
+  color:#454FBF;
+  background-color: #FFFFFF;
+  box-shadow: 0 15px 32px 0 rgba(0,0,0,0.2), 0 20px 40px 0 rgba(0,0,0,0.19);
+}
+.transfer:active{
+  opacity: 0.7;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  background-color: #454FBF;
+  color: white;
+  
+}
+
+.prettyprint{
+  font-size: 15px;
+}
+
+ul.gallery{
+  list-style-type: none;
+  display: block;
+}
+figure {
+  margin-left: 100px;
+  display: inline-block;
+}
+figure img {
+  border: 5px solid #000;
+  vertical-align: top;
+  align-content: center;
+}
+figure figcaption {
+  text-align: center;
+  font-size: 40px;
+  outline-color: black;
+}
+
