@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>okConcepts</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="PR.prettyPrint()">
+  <script src="script.js"></script>
+  <ul class="navbar">
+    <li class="temp">a</li>
+    <section id="name">
+      <li class="link"><a href="index.html">Majd Alajroudi</a></li>
+    </section>
+    <li class="link"><a href="personal.html">Personal</a></li>
+    <li class="link"><a href="questions.html">Questions</a></li>
+    <section id="active">
+      <li class="link"><a href="concepts.html">Concepts</a></li>
+    </section>
+    <li class="link"><a href="ICS4Umain.html">ICS4U</a></li>
+  </ul>
+
+  <section id="first">
+    <h1>Concepts</h1>
+  </section>
+  <h2>Documentation</h2>
+  <h3>Documenting code is crucial. First, it enhances code understandability by providing insights into its purpose, functionality, and usage. Well-written documentation allows developers to comprehend and maintain code without delving into details of its implementation. Second, it inspires collaboration in team projects by serving as a shared reference that helps team members understand each other's code, allowing fluid collaboration and reducing communication barriers.  Lastly, documenting code ensures the long-term sustainability of software projects by preserving institutional knowledge and enabling future developers to understand and maintain the code effectively. </h3>
+  <h3>To begin, all programs must have a header in their main class with the name of the program, the purpose, the author, and the date created.</h3>
+  <pre class="prettyprint">
+///Example Header
+/*
+  Name:        Stock Manager
+  Purpose:     Version 2 of program allowing business owners to manage stock, 
+                now with added item types and general improvements
+
+  Author:      Majd Alajroudi
+  Created:     04/22/2022
+  Updated:     05/04/2023
+*/</pre class="prettyprint">
+  <h3>Classes</h3>
+  <pre class="prettyprint">
+///It is essential to provide clear explanations of their purpose, variables, and methods.
+///This helps other developers figure out how to use these classes</pre>
+  <pre class="prettyprint">
+///[summary] Item with a name, a price, and a category[/summary]
+public class item
+{
+    //String 'name' with methods for getting and setting the value
+    public string name { get; set; }
+    //float 'price' with methods for getting and setting the value
+    public float price { get; set; }
+    //String 'category' with methods for getting and setting the value
+    public string category { get; set; }
+    //Integer 'quantity' with methods for getting and setting the value
+    public int quantity { get; set; }
+}</pre>
+  <h3>Inheritance</h3>
+  <pre class="prettyprint">
+///When documenting this concept, it is important to explain the inheritance hierarchy, specifying the base class and the derived classes. This documentation helps developers understand the relationships between classes.
+</pre>
+  <pre class="prettyprint">
+///[summary]Class for Perishable Items, inheriting name, price, category and quantity from base class item[/summary]
+public class perishableItem : item
+{
+    //Date variable 'dateAdded' with methods for getting and setting the value
+    public DateTime dateAdded {get; set;}
+    //Boolean 'isExpired' with methods for getting and setting the value. Default value is false
+    public bool isExpired {get; set;} = false;
+    //Date variable 'expiryDate' with methods for getting and setting the value
+    public DateTime expiryDate {get; set;}
+    
+    //Method that sets isExpired to true and changes the name to show expiry info. Used in the main class.
+    public void Expire()
+    {
+        isExpired = true;
+        name = $"{name} (Expired)";
+    }
+    //Find expiry date by adding the number of days to expire to the date item was added
+    public void calculateExpiryDate (float daysToExpire)
+    {
+        expiryDate = dateAdded.AddDays(daysToExpire);
+    }
+}</pre>
+<h3>UML Diagrams</h3>
+<h3>UML Diagrams are visual representations of class relationships, rather than actual code.</h3>
+<h3>The UML Diagram you create must have the correct identifiers for public or private, the correct variable types, correct relationships between base and derived classes, and a concise title.</h3>
+  <h2>Recursion</h2>
+  <h3>Recursion is a simple yet powerful concept in programming that can be used in many ways, from generating mazes and
+    solving them to creating diverse fractals. Recursive functions work by repeatedly calling themselves until a desired
+    result is acheived. All recursive methods need to be terminated at some point, or they will keep running infinitely.
+  </h3>
+  <pre class="prettyprint">
+public static double Factorial(int number)    
+{    
+    if (number == 0)    
+        return 1;    
+
+    double factorial = 1;    
+    for (int i = number; i >= 1;i-- )    
+    {    
+        factorial = factorial * i;    
+    }    
+    return factorial;    
+} 
+</pre>
+  <h3>The provided C# method calculates the factorial of a given number using recursion. It first checks if the number
+    is 0, returning 1 as the factorial of zero is always one. Otherwise, it initializes a variable to store the
+    factorial value. It then enters a loop that multiplies the factorial by each number from the given number down to 1.
+    After the loop, it returns the final factorial value. In essence, the method repeatedly multiplies the number by the
+    factorial of the preceding numbers until it reaches the base case of 0, where the factorial is defined as 1.</h3>
+
+  <h2>Classes and Objects</h2>
+  <h3>Many mainstream programming languages are what is known as object-oriented programming languages. A class can be
+    thought of as a blueprint for an object, as it contains all the necessary data the object requires. An object is an
+    instance of a class, and as such it is created from a class.</h3>
+  <pre class="prettyprint">
+///Item with a name, a price, and a category
+public class item
+{
+    public string name;
+    public float price;
+    public string category ;
+    public int quantity = 1;
+}
+public class main
+{
+    item myItem = new item(){
+      name = "Ball",
+      price = 3,
+      category = "Toys",
+      quantity = 7
+    };
+    Console.WriteLine(myItem.name);
+    ///Expected output: "Ball"
+}
+</pre>
+  <h3>Let's break this code down.</h3>
+  <h3>First, we create a class using the 'class' keyword, and name it item. Next, we add four variables, name, price,
+    category, and quantity. We only give quantity and price a default value. As stated earlier, we can imagine this
+    class as a blueprint, which we can use to create an item object.</h3>
+  <h3>Second, we are creating an item object using our blueprint. We assign values to all the variables, even the ones
+    with default values (meaning the default value will be overriden).</h3>
+  <h3>So to reiterate, we are creating a blueprint and then creating an object using it. We can use our blueprint
+    however many times we want.</h3>
+  <h3>Classes can also be built into the programming language. This can be seen in C#. Below is an example of the C#
+    Stopwatch class.</h3>
+  <pre class="prettyprint">
+var watch = Stopwatch.StartNew();
+//example code, after this code is complete, the next line will happen
+watch.Stop();
+float elapsedTime = watch.Elapsed.TotalMilliseconds</pre>
+  <h3>The Stopwatch class is a blueprint, and we create an object from that blueprint to time our code.</h3>
+  <h2>Inheritance</h2>
+  <h3>In object-oriented programming languages, inheritance is a feature that allows programmers to create relationships
+    between classes. </h3>
+  <h3>First, you will have a base class. This is any normal class that can contain variables and methods as usual. Next,
+    you will create a derived class which inherits the base class. This means that the derived class will have access to
+    all the variables and methods of its parent class, and can also have its own.</h3>
+  <pre class="prettyprint">
+public class item
+{
+    public string name = "Item";
+    public float price;
+    public string category;
+    public int quantity;
+    public float costToProduce{get; set;}
+
+    //Calculate profit using inputted price & cost to produce
+    public float calculateProfit()
+    {
+        return price-costToProduce;
+    }
+}
+public class perishableItem : item
+{
+    public DateTime dateAdded;
+    public bool isExpired = false;
+    public DateTime expiryDate;
+    //Change name to show expiry info
+    public void Expire()
+    {
+        isExpired = true;
+        name = $"{name} (Expired)";
+    }
+    //Find expiry date by adding the number of days to expire to the date item was added
+    public void calculateExpiryDate (float daysToExpire)
+    {
+        expiryDate = dateAdded.AddDays(daysToExpire);
+    }
+}
+  </pre>
+  <h3>This code is a little long. Let's break it down to understand further.</h3>
+  <h3>First, we create our base class (in this case, <u>item</u>). This is the same class from the <u>Classes & Objects
+      section</u>, just with some minor tweaks. Next, we create our derived class of <u>perishableItem</u>. After the
+    name of our new class, we add a colon, and then we add 'item'. This means that perishableItem inherits from item.
+  </h3>
+  <h3>Now, perishableItem itself does not have any of the base variables or methods, but that does not mean we cannot
+    use them. If we have a perishableItem, we can try to access name and see what happens.</h3>
+  <pre class="prettyprint">
+///For the sake of keeping this block short, we don't assign any variables. Name is alreay defaulted to 'item' in the base class.
+perishableItem pItem = new();
+Console.WriteLine(pItem.name);
+///Expected Output: "Item"
+  </pre>
+  <h3>Even though perishableItem does not contain name, we can still access it, as perishableItem inherits it from the
+    parent class!</h3>
+  <h3>As an example, Inheritance would be very important for programs with cars. There are many different types of cars,
+    such as sedans, trucks, and sports cars. All of these cars are built for different purposes, meaning they do not
+    share the same attributes. A programmer could have a base vehicle class, and some derived classes for the car types.
+  </h3>
+  <h2>File reading and writing</h2>
+  <h3>When creating an advanced program, it is extremely likely you will find the need to save files and/or read them
+    from disk. This is especially true for any game meant to be played in more than one sitting. </h3>
+
+  <h3>Let's imagine a game with the following features:
+    - Options
+    - Procedural World Generation
+    - Multiple levels and/or bosses
+    This game would have multiple reasons to use file reading/writing.</h3>
+  <h3>First, as a player or a developer playtesting, it would be extremely tedious to have to input your preferred
+    settings every time you launch the game, meaning the program must save them to disk and then read them on next
+    launch.</h3>
+  <h3>Second, if the player likes the world they are on, they're gonna want to play on it again. The game must have an
+    option to save the game, and then the saves must be read so the player can re-enter their world on another run.</h3>
+  <h3>Finally, this game has more than one level and boss. This means the player would likely need to play for more than
+    one sitting to finish it. Without saving or reading files, the player would be forced to leave the game open or
+    close it and lose their run. No one would play this game, because it would just be tedious. This is why having an
+    option to save the game is crucial, so the player can go back later and continue where they left off.</h3>
+  <h3>Below is how I used reading and writing to JSON in one of my programs.</h3>
+  <pre class="prettyprint">
+static JsonSerializerOptions options = new JsonSerializerOptions
+{
+    WriteIndented = true
+};</pre>
+  <pre class="prettyprint">
+static void saveToJson()
+{
+    //Write all items to database and tell user it is done
+    File.WriteAllText("items-database.json", JsonSerializer.Serialize(items, options));
+    tools.log("Done!", ConsoleColor.Green);
+    tools.waitForUser();
+    Console.Clear();
+    programOptions();
+}</pre>
+  <pre class="prettyprint">
+static void readFromJson()
+{
+    //Clear item array and then read items from database if the database exists.
+    //Runs on startup if the user has ran the program before
+    items.Clear();
+    if(File.Exists(Environment.CurrentDirectory + "/items-database.json"))
+        items = JsonSerializer.Deserialize<List<item>>(File.ReadAllText(Environment.CurrentDirectory + "/items-database.json"));
+}</pre>
+  <h3>The readFromJson method is run on start, or when the user requests it. It clear s the item list and reads the list
+    of items saved on disk. This is crucial as the program is going to be run more than once, and it also allows the
+    user to send item databases to other computers.</h3>
+  <h2>Sorting algorithms</h2>
+  <h3>Sorting algorithms are ways of sorting arrays. Chances are, the language you code in has a built-in sort function
+    that uses an advanced sorting method. Sorting brings order in a list of values. In unsorted data, looking at a
+    specific value tells you nothing about the other values in the list. In a sorted list, when you look at a value, you
+    know that all the values before it are smaller, and all the following values are larger. There are many sorting
+    algorithms, such as:
+    - Insertion Sort
+    - Merge Sort
+    - Quick Sort
+    - Bubble Sort
+    Some are slow as they have to search the whole array, while some use smarter thinking to find the target.</h3>
+  <h3>The speed of algorithms can be compared by looking at their worst-case time complexity, as that is when the
+    algorithm takes the longest to run. For example, Insertion Sort is one of the slowest with a time complexity of
+    O(n^2). THis means the array is sorted in reverse of what is actually correct. The algorithm must compare each
+    element in the unsorted array with all of the elements in the sorted and relocate values to make room for the
+    insertion. </h3>
+  <h3>Below is Insertion Sort.</h3>
+  <pre class="prettyprint">
+static item[] InsertionSort(item[] inputArray)
+{
+    for (int i = 0; i < inputArray.Length - 1; i++)
+    {
+        tools.log($"{i}/{inputArray.Length}");
+        for (int j = i + 1; j > 0; j--)
+        {
+            if (inputArray[j - 1].quantity > inputArray[j].quantity)
+            {
+                item temp = inputArray[j - 1];
+                inputArray[j - 1] = inputArray[j];
+                inputArray[j] = temp;
+            }
+        }
+        tools.ClearLastLine();
+    }
+    return inputArray;         
+}</pre>
+  <h3>Insertion Sort goes through the whole array, comparing if the current item is bigger or smaller than the one next
+    to it.</h3>
+  <h2>Searching algorithms</h2>
+  <h3>Searching algorithms allow programmers to look for a target in an array or list quickly using a simple method. In
+    our daily life, we often have to look for a specific item amongst others. You might need to find a phone number on
+    your phone or a text your friend sent you. Manually, you would have to look through dozens, hundreds, or possibily
+    thousands of others. The same happens in programming, where we need to find an item in a large array, such as the
+    index of an item with a specific quantity in a large database.</h3>
+  <h3>This is why searching algorithms are crucial for programming. Without them, you would have to examine every single
+    item manually to see if it's what you're looking for. In fact, this is how the Linear Search algorithm works, by
+    comparing a target to every item in an array.</h3>
+  <h3>Linear Search is a very simple algorithm. Below is some code.</h3>
+  <pre class="prettyprint">
+static int LinearSearch(item[] inputArray, int target)
+{
+    for (int i = 0; i < inputArray.length; i++)
+    {
+        if (array[i].quantity == target)
+        {
+            return i;
+        }
+    }
+    return -1;
+}</pre>
+  <h3>There are many faster search algorithms, which use divide-and-conquer concepts. An example is binary search.
+    Binary Search works by taking the middle of an array, and checking if an item is in the left or right half. That
+    process is repeated until the item is found.</h3>
+  <h3>Some issues with searching algorithms is ones like Binary Search that rely on the concept of greater or less than
+    require that the inputted array is sorted, while algorithms like Linear Search do not need that as they cycle
+    through the whole array.</h3>
+  </br>
+  <link rel="stylesheet" type="text/css" href="google-code-prettify/skins/atomlike.css">
+  <script type="text/javascript" src="google-code-prettify/prettify.js"></script>
+</body>
+
+</html>

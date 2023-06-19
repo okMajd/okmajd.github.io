@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>okNon-Programming</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="PR.prettyPrint()">
+  <script src="script.js"></script>
+  <ul class="navbar">
+    <li class="temp">a</li>
+    <section id="name">
+      <li class="link"><a href="index.html">Majd Alajroudi</a></li>
+    </section>
+    <li class="link"><a href="personal.html">Personal</a></li>
+    <section id="active">
+    <li class="link"><a href="questions.html">Questions</a></li>
+    </section>
+      <li class="link"><a href="concepts.html">Concepts</a></li>
+    <li class="link"><a href="ICS4Umain.html">ICS4U</a></li>
+  </ul>
+  <section id="first">
+    <h1>Questions & Answers</h1>
+  </section>
+  <h1>Documentation & UML</h1>
+  <h2 class="question">Reading through the documentation that you created for your classes and extending objects work, if someone else were reading through your documentation, what ambiguities exist? Where could you have been clearer in your descriptions/parameters/return value information?
+</h2>
+  <h3>Looking at my documentation for my base class of item & derived classes perishableItem and clothingItem, I have found some ambiguities that could be caused. While programming, I subconsciously assumed whoever would be reading this in the future would be able to tell through context clues what the variable structure means (i.e initializing a variable), and what the get, set methods mean. However, I quickly realized an issue with this thinking. Hypothetically, if your main programming language is Basic, a language that has little to nothing in common with C#, and you are using my code as a way of learning, the lack of documentation on the variable structure and methodology will confuse you. 
+
+Knowing this, I could have explained through comments what type each variable is, and if a type name is a little confusing (such as DateTime), explain what that type does. In addition, I could have explained the meaning of {get; set;} as that is not common in many programming languages. Finally, in a couple of my methods, the parameters were commented but the documentation on that was a little vague.
+
+So to conclude, I should have been more descriptive with my variable documentation and documentation on parameters to assist those who do not program in C#.
+</h3>
+  <h1>Inheritance (and similar)</h1>
+  <h2 class="question">Will you ever use the concepts of inheritance/abstraction/interfacing/etc in future coding projects? Why or why not? Explain your reasoning.
+</h2>
+  <h3>Definitely. In fact, I have used inheritance in a previous project. In my free time, I enjoy making games, and almost all game development projects use inheritance in some way. In the past, I have made a first-person shooter game by having a base class of a weapon, with normal variables such as name, damage, and bullet speed, and then a derived class with more specific weapon types such as assault rifle or shotgun. In the team project I focused on this semester, we had used inheritance for the weapons and also abilities. We had a base class of weapon with a name and the method for attacking, and then derived classes of melee and ranged weapons with override methods for attacking (ranged attacks differently than melee). I will definitely be using it in the future as it opens the door to more versatile and modular programs.
+</h3>
+  <h1>File Input/Output</h1>
+  <h2 class="question">If you were to connect an API to your Data Structures program, which API would you choose and how would it be beneficial to your program?
+</h2>
+  <h3>My program is a stock manager system. Currently, it works by using JSON files for the reading and writing of the database. Due to this, only one user is allowed. I would use the Google Sheets API to replace the reading and writing of Json files to the disk. With this change, I would have the user input an API key, meaning multiple people can use the program. I would use this API for several reasons. 
+
+First, storing the database on the cloud is much safer and more efficient than storing json files on disk. With the current method, any data corruption would completely destroy the database the user has built, and if they have no backups, they must start from scratch. Even in the case of a backup, if it is older than even a day, a lot of work could be lost wasting time and resources. In addition, with the current way the program is set up, it is very easy for anyone trying to steal data to just take the Json files off the disk of the manager, while having it online would make the job much harder. 
+
+Second, storing the database on disk could become a hassle when dealing with thousands of items. The Json files could grow to hundreds of gigabytes, and without upgrading the storage size of the computer, the use of the program would be limited.
+
+Finally, with the current setup, to edit the data the editor must be on the computer of whoever has the data. On the other hand, Google Sheets allows sharing of documents, meaning the document with the database can be shared with anyone who needs to have access to it, and due to the intuitive design of Google Sheets, it can easily be edited on the fly and anyone who has inputted the API key into their program would see the changes immediately.
+</h3>
+  <h1>Sorting</h1>
+  <h2 class="question">Given that quick sort, merge sort, and heap sort are all O(n log n) average-case sorting algorithms, when might someone use one over another. Mention all three in your response. Justify your response.
+</h2>
+  <h3>Quick Sort is often favored for its efficiency and suitability for large datasets. It has good cache performance and can be implemented in-place, making it a good choice when minimizing memory usage is crucial. However, Quick Sort has a worst-case time complexity of O(n^2) in certain scenarios, so it may not be the best option when worst-case performance is a concern.</h3>
+
+<h3>Merge Sort, on the other hand, guarantees a worst-case time complexity of O(n log n) regardless of the input data. It is a stable sorting algorithm, preserving the order of equal elements, which is important in certain applications. Merge Sort performs well on linked lists and is suitable for scenarios where stability is crucial or when sorting objects with multiple keys. However, it requires additional memory for the merging process, so memory constraints should be considered when choosing this algorithm.</h3>
+
+<h3>Heap Sort is an efficient sorting algorithm with a worst-case time complexity of O(n log n). It can be implemented in-place, which means it does not require extra memory beyond the input array. Heap Sort is useful in situations where sorting needs to be performed in a fixed amount of memory or when external sorting is required. However, it has a non-sequential memory access pattern, which can result in slightly slower average-case performance compared to Quick Sort and Merge Sort.</h3>
+
+<h3>Quick Sort would be the algorithm of choice in a situation where you need to sort a large dataset with limited memory availability, due to its efficient in-place sorting and minimal memory requirements. On the other hand, if you're working with a dataset that requires stable sorting, such as sorting student records by their names and then by their grades, Merge Sort would be the perfect fit. It guarantees stability and preserves the relative order of equal elements. Lastly, if you're dealing with an external sorting task where the dataset is too large to fit into memory entirely, Heap Sort would be the most suitable algorithm due to its ability to perform sorting with limited memory resources. It can handle large datasets efficiently by leveraging the heap data structure.
+</h3>
+  <h1>Searching</h1>
+  <h2 class="question">You've lost a personal item (i.e. phone, book, etc.). Create a searching algorithm to describe how you would search for your personal item. If you had to write out the algorithm in programming terms, what would it look like? What would be the Big-Oh worse-case scenario of your algorithm. Hint: linear search, binary search, and ternary search are not good searches for you to use.
+</h2>
+  <h3>
+I would create a non-comparison based algorithm:
+Backtrack my steps since I last remember having the item, and write down in a list every step in order from earliest to now. Start in the earliest location. After this:</h3>
+<ol>
+  <li>Get a paper to write down every visited location</li>
+  <li>When there is more places to explore:</li>
+  <ul>
+    <li>Go to the earliest in the list, and remove it from the list (since it has been visited).</li>
+    <li>Check if the personal item is at the current location.</li>
+    <ul><li>If it is, we have found it! Put a checkmark next to the location and stop looking.</li></ul>
+    <li>Write down this location in the visited locations paper</li>
+    <li>To the original paper with all the locations, write down the neighboring locations of this position.</li>
+  </ul>
+  <li>If we didn’t find the item after searching all the locations, then we stop the search process and need to think of new locations.</li>
+</ol>
+<h3>In this algorithm, we use a breadth-first search to systematically explore all possible locations in a breadth-first manner. This approach ensures that all locations are checked before concluding that the personal item is not present.</h3>
+<h3>The worst-case time complexity of this algorithm depends on the number of locations that need to be explored. If there are a total of n possible locations, and each location has k neighboring locations, the worst-case time complexity would be O(n + k), as we need to visit all possible locations and their neighboring locations.</h3>
+  <h1>Emerging Technology and Theoretical Computer Science</h1>
+  <h2 class="question">Think of a new product that combines the emerging technology topic you presented and the theoretical computer science topic you chose. Name and describe one unintended ethical concern that could propagate during the manufacturing process of your product which could cause harm to an oppressed or marginalized group. Describe one possible solution to this concern.
+</h2>
+  <h3>Imagine a software application that utilizes advanced algorithmic coding techniques to efficiently process and analyze vast amounts of textual data for fact-checking purposes, and then encrypts messages to be sent to a server. This application would employ state-of-the-art algorithms to parse, interpret, and cross-reference information from various sources, providing accurate and reliable fact-checking results in real-time.
+
+However, an unintended ethical concern that could arise during the manufacturing process of this product is related to privacy and data protection. The system would need access to a significant amount of user-generated content, including social media posts, articles, and other forms of textual data. If this data is not handled with care and the proper encryption is not used, it could potentially infringe upon the privacy of individuals, especially those from marginalized or oppressed groups who may already face heightened surveillance and scrutiny.
+
+To address this concern, one possible solution is to implement strict privacy measures and data protection protocols throughout the manufacturing process of the product. This includes anonymizing and aggregating the data used for training and validation purposes, ensuring that personally identifiable information is properly secured and encrypted. Additionally, obtaining informed consent from users regarding the use of their data and providing transparent and easily understandable privacy policies are crucial steps to establish trust and mitigate any potential harm to individuals or marginalized groups. Finally, ensuring that the most advanced methods of data encryption are used so messages sent to servers cannot be intercepted by malicious parties.
+
+By prioritizing privacy and adopting robust data protection measures, the product can uphold ethical standards and respect user rights, thereby minimizing the risk of unintended harm to oppressed or marginalized communities. It is essential to adhere to legal and ethical frameworks while leveraging algorithmic coding theory to develop efficient and responsible solutions in the field of automated fact-checking.
+</h3>
+</body>
+
+</html>
